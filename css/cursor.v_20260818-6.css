@@ -1,0 +1,359 @@
+/* ========================================
+   SECTION-AWARE CUSTOM CURSOR
+======================================== */
+
+@media (hover: hover) and (pointer: fine) {
+    body.custom-cursor-active,
+    body.custom-cursor-active a,
+    body.custom-cursor-active button,
+    body.custom-cursor-active [role="button"] {
+        cursor: none;
+    }
+}
+
+.site-cursor {
+    --cursor-tone: #d61f38;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform;
+    transition: opacity 0.2s ease;
+}
+
+.site-cursor.is-visible {
+    opacity: 1;
+}
+
+.site-cursor-ring,
+.site-cursor-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition:
+        width 0.28s ease,
+        height 0.28s ease,
+        border-color 0.28s ease,
+        background-color 0.28s ease,
+        opacity 0.2s ease;
+}
+
+.site-cursor-ring {
+    width: 34px;
+    height: 34px;
+    border: 1.5px solid var(--cursor-tone);
+    background: transparent;
+    box-shadow: 0 0 22px color-mix(in srgb, var(--cursor-tone) 16%, transparent);
+}
+
+.site-cursor-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--cursor-tone);
+}
+
+.site-cursor.is-interactive .site-cursor-ring {
+    width: 54px;
+    height: 54px;
+    background: color-mix(in srgb, var(--cursor-tone) 16%, transparent);
+}
+
+.site-cursor.is-interactive .site-cursor-dot {
+    width: 7px;
+    height: 7px;
+}
+
+.site-cursor.is-pressed .site-cursor-ring {
+    width: 25px;
+    height: 25px;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .site-cursor-ring {
+        width: 34px;
+        height: 34px;
+        border-width: 1.5px;
+        background: color-mix(in srgb, var(--cursor-tone) 10%, transparent);
+    }
+
+    .site-cursor-dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    .site-cursor.is-interactive .site-cursor-ring,
+    .site-cursor.is-pressed .site-cursor-ring {
+        width: 44px;
+        height: 44px;
+        background: color-mix(in srgb, var(--cursor-tone) 18%, transparent);
+    }
+}
+
+/* Journey tones */
+
+.journey-cursor-page {
+    --section-cursor-tone: #ffc21c;
+}
+
+.journey-cursor-page .navbar,
+.journey-cursor-page .journey-hero,
+.journey-cursor-page .journey-strategy,
+.journey-cursor-page .journey-question-bigger,
+.journey-cursor-page .journey-hostage,
+.journey-cursor-page .journey-pressure,
+.journey-cursor-page .journey-execution,
+.journey-cursor-page .journey-continues {
+    --section-cursor-tone: #ffc21c;
+}
+
+.journey-cursor-page .journey-breaking-point,
+.journey-cursor-page .journey-bill,
+.journey-cursor-page .journey-fatwa,
+.journey-cursor-page .journey-limit,
+.journey-cursor-page .journey-takweyat,
+.journey-cursor-page .journey-preparation,
+.journey-cursor-page .journey-follow {
+    --section-cursor-tone: #15120d;
+}
+
+.journey-cursor-page .journey-flotilla {
+    --section-cursor-tone: #fffdf7;
+}
+
+.journey-cursor-page .journey-final-realization,
+.journey-cursor-page .journey-marquee {
+    --section-cursor-tone: #15120d;
+}
+
+
+/* Plan tones */
+
+.plan-page {
+    --section-cursor-tone: #ffc21c;
+}
+
+.plan-page .plan-navbar,
+.plan-page .plan-hero,
+.plan-page .builders-section,
+.plan-page .gate-section,
+.plan-page .formula-section,
+.plan-page .employment-section,
+.plan-page .fronts-intro-section,
+.plan-page .media-front,
+.plan-page .physical-section,
+.plan-page .audience-section,
+.plan-page .started-section {
+    --section-cursor-tone: #ffc21c;
+}
+
+.plan-page .manifesto-section,
+.plan-page .structure-section,
+.plan-page .university-section,
+.plan-page .paths-section,
+.plan-page .roadmaps-section,
+.plan-page .masjid-front,
+.plan-page .network-front,
+.plan-page .lifelong-section,
+.plan-page .claims-section,
+.plan-page .enter-section,
+.plan-page .plan-marquee,
+.plan-page .skills-marquee {
+    --section-cursor-tone: #15120d;
+}
+
+/* Home tones */
+
+.home-page {
+    --section-cursor-tone: #ffc21c;
+}
+
+.home-page .home-navbar,
+.home-page .home-hero,
+.home-page .home-why,
+.home-page .home-university,
+.home-page .home-fronts-intro,
+.home-page .home-media,
+.home-page .home-journey-gateway,
+.home-page .home-collaborate,
+.home-page .home-join,
+.home-page .home-started,
+.home-page .home-footer {
+    --section-cursor-tone: #ffc21c;
+}
+
+.home-page .home-marquee,
+.home-page .home-identity,
+.home-page .home-system,
+.home-page .home-foundation,
+.home-page .home-masjid,
+.home-page .home-network,
+.home-page .home-plan-gateway,
+.home-page .home-support,
+.home-page .home-follow {
+    --section-cursor-tone: #15120d;
+}
+
+/* University tones */
+
+.university-page {
+    --section-cursor-tone: #ffc21c;
+}
+
+.university-page .university-navbar,
+.university-page .university-hero,
+.university-page .identity-section,
+.university-page .gate-section,
+.university-page .roadmap-section,
+.university-page .lifelong-section,
+.university-page .masjid-training-section,
+.university-page .media-training-section,
+.university-page .responsibility-section,
+.university-page .enter-section,
+.university-page .university-footer {
+    --section-cursor-tone: #ffc21c;
+}
+
+.university-page .university-marquee,
+.university-page .why-section,
+.university-page .structure-section,
+.university-page .foundation-section,
+.university-page .transformation-section,
+.university-page .fronts-section,
+.university-page .network-training-section,
+.university-page .accountability-section,
+.university-page .audience-section,
+.university-page .claims-section,
+.university-page .started-section {
+    --section-cursor-tone: #15120d;
+}
+
+/* Masjid and Madrassah Revival tones */
+
+.revival-page {
+    --section-cursor-tone: #ffc21c;
+}
+
+.revival-page .revival-navbar,
+.revival-page .revival-hero,
+.revival-page .revival-dark,
+.revival-page .revival-charcoal,
+.revival-page .revival-footer {
+    --section-cursor-tone: #ffc21c;
+}
+
+.revival-page .revival-paper,
+.revival-page .revival-gold,
+.revival-page .revival-marquee {
+    --section-cursor-tone: #15120d;
+}
+
+/* United Ummah Network tones */
+
+.network-page {
+    --section-cursor-tone: #20e65f;
+}
+
+.network-page .network-navbar,
+.network-page .network-hero,
+.network-page .network-black,
+.network-page .network-grid-dark,
+.network-page .network-footer {
+    --section-cursor-tone: #52ff85;
+}
+
+.network-page .network-white,
+.network-page .network-green,
+.network-page .network-marquee {
+    --section-cursor-tone: #020604;
+}
+
+/* United Ummah Media Force tones */
+
+.media-page {
+    --section-cursor-tone: #ff4057;
+}
+
+.media-page .media-navbar,
+.media-page .media-hero,
+.media-page .media-black,
+.media-page .media-footer {
+    --section-cursor-tone: #ff4057;
+}
+
+.media-page .media-paper,
+.media-page .media-red,
+.media-page .media-marquee {
+    --section-cursor-tone: #030304;
+}
+
+/* Collaborate With Us tones */
+
+.collaborate-page {
+    --section-cursor-tone: #ffc21c;
+}
+
+.collaborate-page .collaborate-navbar,
+.collaborate-page .collab-hero,
+.collaborate-page .collab-dark,
+.collaborate-page .collab-footer {
+    --section-cursor-tone: #ffc21c;
+}
+
+.collaborate-page .collab-paper,
+.collaborate-page .collab-gold,
+.collaborate-page .collab-marquee {
+    --section-cursor-tone: #15120d;
+}
+
+/* Support Us tones */
+
+.supportus-page {
+    --section-cursor-tone: #ffc21c;
+}
+
+.supportus-page .support-navbar,
+.supportus-page .support-hero,
+.supportus-page .support-black,
+.supportus-page .support-finale,
+.supportus-page .support-footer {
+    --section-cursor-tone: #ffc21c;
+}
+
+.supportus-page .support-paper,
+.supportus-page .support-gold,
+.supportus-page .support-marquee {
+    --section-cursor-tone: #15120d;
+}
+
+/* Join United Ummah tones */
+
+.join-page {
+    --section-cursor-tone: #ffc21c;
+}
+
+.join-page .join-navbar,
+.join-page .join-hero,
+.join-page .join-black,
+.join-page .join-finale,
+.join-page .join-footer {
+    --section-cursor-tone: #ffc21c;
+}
+
+.join-page .join-paper,
+.join-page .join-gold,
+.join-page .join-marquee {
+    --section-cursor-tone: #15120d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-cursor {
+        display: none !important;
+    }
+}
